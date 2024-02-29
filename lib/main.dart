@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:quiz_app/provider/questions.dart';
 import 'package:quiz_app/quiz.dart';
 
 void main() {
@@ -11,6 +13,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const Quiz();
+    return MultiProvider(providers: [
+      ChangeNotifierProvider(create: (context) => Questions()),
+    ], child: const Quiz());
   }
 }
